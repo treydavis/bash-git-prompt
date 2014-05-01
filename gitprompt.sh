@@ -27,16 +27,16 @@ Time12a="\@"
 PathShort="\w"
 
 # Default values for the appearance of the prompt. Configure at will.
-GIT_PROMPT_PREFIX="["
-GIT_PROMPT_SUFFIX="]"
-GIT_PROMPT_SEPARATOR="|"
+GIT_PROMPT_PREFIX="("
+GIT_PROMPT_SUFFIX=")"
+GIT_PROMPT_SEPARATOR=""
 GIT_PROMPT_BRANCH="${Magenta}"
-GIT_PROMPT_STAGED="${Red}● "
-GIT_PROMPT_CONFLICTS="${Red}✖ "
-GIT_PROMPT_CHANGED="${Blue}✚ "
+GIT_PROMPT_STAGED="${Green}●"
+GIT_PROMPT_CONFLICTS="${Red}✖"
+GIT_PROMPT_CHANGED="${Red}✚"
 GIT_PROMPT_REMOTE=" "
 GIT_PROMPT_UNTRACKED="…"
-GIT_PROMPT_CLEAN="${BGreen}✔"
+GIT_PROMPT_CLEAN=""
 
 PROMPT_START="$Yellow$PathShort$ResetColor"
 PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
@@ -45,7 +45,7 @@ PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
 function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
     local gitstatus="${__GIT_PROMPT_DIR}/gitstatus.py"
-    
+
     _GIT_STATUS=$(python $gitstatus)
     __CURRENT_GIT_STATUS=($_GIT_STATUS)
 	GIT_BRANCH=${__CURRENT_GIT_STATUS[0]}
